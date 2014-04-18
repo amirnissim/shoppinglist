@@ -1,0 +1,32 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 10px;
+
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+
+.input-group-btn .btn-success {
+  color: #ffffff;
+  background-color: #2ecc71;
+}
+
+form ul {
+  min-height: 300px;
+}
+
+form .remove-item {
+  float: right;
+}
+
+#clear {
+  display: none;
+}
+
+.list #clear {
+  display: block;
+}

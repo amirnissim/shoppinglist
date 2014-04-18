@@ -4,13 +4,15 @@
   function $(s) {
     return document.querySelector(s);
   }
-
+  function setState(state) {
+    document.body.className = state;
+  }
   var elements = {
     input: $('#input'),
     list: $('#list'),
     addItem: $('#addItem'),
     clear: $('#clear'),
-    form: $('#form')
+    form: $('form')
   };
 
   var ShoppingList = {
@@ -24,6 +26,11 @@
           ShoppingList.push(childData.val().item, childData.name());
         });
       });
+
+      this.dataRef.on('value', function(dataSnapshot) {
+        setState(dataSnapshot.val() ? 'list' : '');
+      });
+
     },
     clear: function() {
       elements.list.innerHTML = '';
@@ -34,10 +41,11 @@
       li = document.createElement('li'),
       a = document.createElement('a');
 
+      li.className = 'list-group-item';
       li.textContent = item;
       li.dataset.key = key;
 
-      a.className = 'removeItem';
+      a.className = 'remove-item';
       a.innerHTML = '&times;';
       a.addEventListener('click', function() {
         ShoppingList.remove(key);
@@ -61,6 +69,7 @@
     var item = elements.input.value;
     if (item) {
       ShoppingList.add(item);
+      elements.input.value = '';
     }
   }
 
@@ -68,7 +77,6 @@
   elements.addItem.addEventListener('click', addItem);
   elements.clear.addEventListener('click', ShoppingList.clear.bind(ShoppingList));
   elements.form.addEventListener('submit', function(e) {
-    debugger;
     e.preventDefault();
     addItem();
   });

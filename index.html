@@ -6,17 +6,31 @@
 
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
   <link rel="icon" href="favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="style/bootstrap.css">
+  <link rel="stylesheet" href="style/flat-ui.css">
+  <link rel="stylesheet" href="style/main.css">
 
   <title>[Title]</title>
 </head>
 <body>
-  <form id="form">
-    <input type="text" id="input">
-    <ul id="list"></ul>
-    <button type="button" id="addItem">add</button>
-    <button type="button" id="clear">clear</button>
-  </form>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <form>
+          <div class="input-group">
+              <input type="text" id="input" class="form-control">
+            <span class="input-group-btn">
+              <button type="button" id="addItem" class="btn btn-success">+</button>
+            </span>
+          </div>
+
+          <ul id="list" class="list-group"></ul>
+
+          <button type="button" id="clear" class="btn btn-danger btn-block">Clear List</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
   <script type="text/javascript" src="main.js"></script>
