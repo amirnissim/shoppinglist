@@ -11,7 +11,7 @@
     input: $('#input'),
     list: $('#list'),
     addItem: $('#addItem'),
-    clear: $('#clear'),
+    // clear: $('#clear'),
     form: $('form')
   };
 
@@ -75,7 +75,7 @@
 
   ShoppingList.init();
   elements.addItem.addEventListener('click', addItem);
-  elements.clear.addEventListener('click', ShoppingList.clear.bind(ShoppingList));
+  // elements.clear.addEventListener('click', ShoppingList.clear.bind(ShoppingList));
   elements.form.addEventListener('submit', function(e) {
     e.preventDefault();
     addItem();
